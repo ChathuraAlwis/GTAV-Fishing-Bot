@@ -13,10 +13,8 @@ while True:
     except:
         continue
 
-    if ss.getTitle() == 'Calculator':
+    if ss.getTitle() == 'Calculator' and keyboard.is_pressed("q"):
         ss.setBorders(pygetwindow.getWindowsWithTitle(ss.getTitle())[0])
-
-        if keyboard.is_pressed("q"):
-            res_image = ss.take()
-            # res_image.show(ss.getPath())
-            break
+        res_image = ss.take()
+        res_image.show(ss.getPath())
+        break
