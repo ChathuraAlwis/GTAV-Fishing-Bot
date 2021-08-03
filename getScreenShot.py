@@ -1,4 +1,4 @@
-import pyautogui
+from PIL import ImageGrab
 
 class getScreenShot:
 
@@ -28,7 +28,7 @@ class getScreenShot:
         return (self.x1, self.y1, self.x2, self.y2)
 
     def take(self):
-        im = pyautogui.screenshot(self.getPath())
-        im = im.crop(self.getBorders())
-        im.save(self.getPath())
+        im = ImageGrab.grab()
+        # im = im.crop(self.getBorders())
+        # im.save(self.getPath())
         return im
