@@ -13,10 +13,16 @@ class getScreenShot:
         self.Title = title
 
     def setBorders(self, window):
-        self.x1 = window.left
-        self.y1 = window.top
-        self.x2 = window.width + self.x1 
-        self.y2 = window.height + self.y1
+        try:
+            self.x1 = window.left
+            self.y1 = window.top
+            self.x2 = window.width + self.x1 
+            self.y2 = window.height + self.y1
+        except:
+            self.x1 = window[0]
+            self.y1 = window[1]
+            self.x2 = window[2]
+            self.y2 = window[3]
 
     def getPath(self):
         return self.ImgPath
@@ -28,7 +34,7 @@ class getScreenShot:
         return (self.x1, self.y1, self.x2, self.y2)
 
     def take(self):
-        im = ImageGrab.grab()
+        im = ImageGrab.grab(bbox = self.getBorders())
         # im = im.crop(self.getBorders())
         # im.save(self.getPath())
         return im
