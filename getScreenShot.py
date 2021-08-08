@@ -13,16 +13,16 @@ class getScreenShot:
         self.Title = title
 
     def setBorders(self, window):
-        try:
-            self.x1 = window.left
-            self.y1 = window.top
-            self.x2 = window.width + self.x1 
-            self.y2 = window.height + self.y1
-        except:
-            self.x1 = window[0]
-            self.y1 = window[1]
-            self.x2 = window[2]
-            self.y2 = window[3]
+        self.x1 = window.left
+        self.y1 = window.top
+        self.x2 = window.width + self.x1 
+        self.y2 = window.height + self.y1
+        # midpoint = (window.left + window.width/2, window.top + window.height/2)
+        # hor_gap = (0.00878477306 * window.width) +50
+        # self.x1 = midpoint[0] - hor_gap
+        # self.y1 = midpoint[1] - (0.1953125 * window.height)+100
+        # self.x2 = midpoint[0] + hor_gap
+        # self.y2 = midpoint[1]
 
     def getPath(self):
         return self.ImgPath
