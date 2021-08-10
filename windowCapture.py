@@ -104,7 +104,14 @@ class windowCapture:
                         keyboard.press_and_release('space')
                         
                         while not keyboard.is_pressed('space'):
-                            continue
+                            if keyboard.is_pressed('up arrow'):
+                                delay+=0.01
+                                print(delay)
+                                sleep(1)
+                            elif keyboard.is_pressed('down arrow'):
+                                delay-=0.01
+                                print(delay)
+                                sleep(1)
              
                     self.showImg()
 
@@ -120,4 +127,4 @@ class windowCapture:
             except:
                 continue
 
-            self.showFPS(time())
+            # self.showFPS(time())
